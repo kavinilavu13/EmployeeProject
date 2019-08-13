@@ -15,9 +15,12 @@ public class EmployeeProcess {
 		System.out.println("add employee");
 		String addEmployee = emp.getId() + "," + emp.getName() + "," + emp.getAge() + "," + emp.getSalary() + ","
 				+ emp.getAddress();
-		File fout = new File("D:\\data.txt");
+		/*File fout = new File("D:\\data.txt");
 		FileOutputStream fos = new FileOutputStream(fout, true);
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+	*/	
+		ReadDataFromFile a=new ReadDataFromFile();
+		BufferedWriter bw=a.aa();
 		if (addEmployee.isEmpty()) {
 			bw.write(addEmployee);
 			bw.newLine();
@@ -47,5 +50,5 @@ public class EmployeeProcess {
 		br.close();
 		return null;
 	}
-
+	
 }

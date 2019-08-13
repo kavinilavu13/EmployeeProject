@@ -3,11 +3,23 @@ package com.employee;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.OutputStreamWriter;
 
 public class ReadDataFromFile {
+	public  BufferedWriter aa() throws FileNotFoundException
+	{
+	File fout = new File("D:\\data.txt");
+	FileOutputStream fos = new FileOutputStream(fout, true);
+	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+	return bw;
+
+	}
+	
+	
+	
   public static void main(String args[])throws Exception{  
 	     File fout = new File("D:\\data.txt");
 		FileOutputStream fos = new FileOutputStream(fout,true);
