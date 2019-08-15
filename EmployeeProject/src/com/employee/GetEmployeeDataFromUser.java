@@ -2,9 +2,7 @@ package com.employee;
 
 import java.io.IOException;
 import java.util.Scanner;
-
-public class FileProcess {
-
+public class GetEmployeeDataFromUser {
 	 public static void main(String[] args) throws IOException {
 	    	
 	    	Scanner input = new Scanner(System.in);	 
@@ -32,17 +30,17 @@ public class FileProcess {
 	    		int Empsalary = salary.nextInt();
 	    		System.out.println("Enter Employee Address:");
 	    		Scanner address = new Scanner(System.in);	 
-	    		String Empaddress= address.nextLine();
-	    		
+	    		String Empaddress= address.nextLine();    		
 	    		System.out.println(Empid+","+EmpName+","+Empage+","+Empsalary+","+Empaddress);
 	    		Employee emp=new Employee();
 	    		emp.setId(Empid);
 	    		emp.setName(EmpName);
 	    		emp.setAge(Empage);
 	    		emp.setSalary(Empsalary);
-	    		emp.setAddress(Empaddress);	    		
-	    		EmployeeProcess empprocess=new EmployeeProcess();
-	    		String response=empprocess.addEmployee(emp);
+	    		emp.setAddress(Empaddress);	
+	    		EmployeeDAO obj=new EmployeeFileHandlerDAO();
+	    		EmployeeService empprocess=new EmployeeService(obj);
+	    		String response=empprocess.addEmployeeData(emp);
 	    		System.out.println(response);
 	   
 	    	}
@@ -51,8 +49,10 @@ public class FileProcess {
 	    		System.out.println("Enter Employee ID for Remove from file:");
 	    		Scanner id = new Scanner(System.in);	 
 	    		int Empid = id.nextInt();
-	    		EmployeeProcess empprocess=new EmployeeProcess();
-	    		empprocess.deleteEmployee(Empid);
+
+	    		EmployeeDAO obj=new EmployeeFileHandlerDAO();
+	    		EmployeeService empprocess=new EmployeeService(obj);
+	    		empprocess.deleteEmployeeData(Empid);
 	    	}
 	    	else if(number==3)
 	    	{
